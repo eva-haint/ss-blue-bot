@@ -35,6 +35,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.util.ReflectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -177,6 +178,12 @@ public class LineMessageHandlerSupport {
         events.forEach(this::dispatch);
     }
 
+    @GetMapping("${line.bot.handler.path:/getHandler}")
+    public List<HandlerMethod> getHandler()
+    {
+    	return eventConsumerList;
+    }
+    
     @VisibleForTesting
     void dispatch(Event event) {
         try {
