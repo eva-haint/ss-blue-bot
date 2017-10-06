@@ -169,7 +169,7 @@ public class LineMessageHandlerSupport {
         int priority;
     }
 
-    @PostMapping("${line.bot.handler.path:/receiveMsg}")
+    @PostMapping("${line.bot.handler.path:/callback}")
     public void callback(@LineBotMessages List<Event> events) {
         events.forEach(this::dispatch);
     }
