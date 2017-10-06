@@ -119,6 +119,9 @@ public class LineMessageHandlerSupport {
                                          item.getSupportType(), item.getHandler().toGenericString()));
 
         eventConsumerList = collect;
+        eventConsumerList.forEach(e -> {
+        	log.info("Method handler" + e.getHandler().getName());
+        });
     }
 
     private HandlerMethod getMethodHandlerMethodFunction(Object consumer, Method method) {
