@@ -123,7 +123,7 @@ public class KitchenSinkController {
                             jpg.path.toString(),
                             previewImg.path.toString());
                     reply(((MessageEvent) event).getReplyToken(),
-                          new ImageMessage(jpg.getUri(), jpg.getUri()));
+                          new ImageMessage(jpg.getUri(), previewImg.getUri()));
                 });
     }
 
@@ -253,7 +253,7 @@ public class KitchenSinkController {
                                 this.reply(
                                         replyToken,
                                         Arrays.asList(new TextMessage(
-                                                              "Display name: " + profile.getDisplayName()),
+                                                              "LINE Location + not supportDisplay name: " + profile.getDisplayName()),
                                                       new TextMessage("Status message: "
                                                                       + profile.getStatusMessage()))
                                 );

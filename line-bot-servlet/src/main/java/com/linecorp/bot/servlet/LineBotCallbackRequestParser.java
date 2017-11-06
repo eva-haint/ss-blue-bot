@@ -80,6 +80,8 @@ public class LineBotCallbackRequestParser {
 
         final byte[] json = payload.getBytes(StandardCharsets.UTF_8);
 
+        log.info("X-Line-Signature: " + signature);
+        
         if (!lineSignatureValidator.validateSignature(json, signature)) {
             throw new LineBotCallbackException("Invalid API signature");
         }

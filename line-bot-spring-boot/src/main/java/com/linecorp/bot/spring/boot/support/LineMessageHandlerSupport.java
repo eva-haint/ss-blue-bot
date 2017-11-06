@@ -120,9 +120,6 @@ public class LineMessageHandlerSupport {
                                          item.getSupportType(), item.getHandler().toGenericString()));
 
         eventConsumerList = collect;
-        eventConsumerList.forEach(e -> {
-        	log.info("Method handler" + e.getHandler().getName());
-        });
     }
 
     private HandlerMethod getMethodHandlerMethodFunction(Object consumer, Method method) {
@@ -176,12 +173,6 @@ public class LineMessageHandlerSupport {
     @PostMapping("${line.bot.handler.path:/callback}")
     public void callback(@LineBotMessages List<Event> events) {
         events.forEach(this::dispatch);
-    }
-
-    @GetMapping("${line.bot.handler.path:/getHandler}")
-    public List<HandlerMethod> getHandler()
-    {
-    	return eventConsumerList;
     }
     
     @VisibleForTesting
