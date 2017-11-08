@@ -80,6 +80,8 @@ public class LineBotCallbackRequestParser {
 
         final byte[] json = payload.getBytes(StandardCharsets.UTF_8);
         
+        log.info("Signature " + signature);
+        
         log.info("Body " + payload);
         
         if (!lineSignatureValidator.validateSignature(json, signature)) {
